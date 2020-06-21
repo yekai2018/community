@@ -12,7 +12,6 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Question implements Serializable {
-
     private static final long serialVersionUID = 1734005831676284178L;
     private Integer id;
     private String title;
