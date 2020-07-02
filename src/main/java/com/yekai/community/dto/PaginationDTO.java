@@ -17,17 +17,27 @@ public class PaginationDTO implements Serializable {
     private boolean showNext;
     private boolean showEndPage;
     private Integer page;
+    private Integer totalPage;
     private List<Integer> pages;
 
     public void setPagination(Integer totalCount, Integer page, Integer size) {
 
         // 总页数
-        Integer totalPage;
         if (totalCount % size == 0) {
             totalPage = totalCount / size;
         } else {
             totalPage = totalCount / size + 1;
         }
+
+        if (page < 1) {
+            page = 1;
+        }
+
+        if (page > totalPage) {
+            page = totalPage;
+        }
+
+        this.page = page;
 
         pages = new ArrayList<>();
         for (int i = page - 3; i <= page + 3; i++) {
